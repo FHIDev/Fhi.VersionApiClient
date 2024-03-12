@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Diagnostics;
+using System.Reflection;
 using Microsoft.Extensions.Logging;
 using Refit;
 
@@ -59,12 +60,28 @@ public interface IVersionService
 /// Service class for uploading and getting version information
 /// Add this in program.cs: services.AddScoped;
 /// </summary>
-/// <param name="versionApi"></param>
-/// <param name="logger"></param>
-public class VersionService(IVersionApi versionApi, ILogger<VersionService> logger) : IVersionService
+public class VersionService : IVersionService
 {
-    readonly string version = Assembly.GetEntryAssembly()?.GetName().Version?.ToString() ?? "";
-        
+    readonly string version;
+    private readonly IVersionApi versionApi;
+    private readonly ILogger<VersionService> logger;
+
+    /// <summary>
+    /// Service class for uploading and getting version information
+    /// Add this in program.cs: services.AddScoped;
+    /// </summary>
+    /// <param name="versionApi"></param>
+    /// <param name="logger"></param>
+    public VersionService(IVersionApi versionApi, ILogger<VersionService> logger)
+    {
+        this.versionApi = versionApi;
+        this.logger = logger;
+        var assembly = Assembly.GetEntryAssembly()!;
+        var fileversioninfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+        var results = fileversioninfo.ProductVersion.Split('+');
+        version=results[0];
+    }
+
     /// <summary>
     /// Service method for uploading version information
     /// </summary>

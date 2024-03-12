@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fhi.Felles.VersionApiClient", "Fhi.VersionApiClient\Fhi.Felles.VersionApiClient.csproj", "{063D88F3-07FE-4C43-BF0F-5FFEDDF31383}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fhi.Common.VersionApiClient", "Fhi.VersionApiClient\Fhi.Common.VersionApiClient.csproj", "{063D88F3-07FE-4C43-BF0F-5FFEDDF31383}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "github", "github", "{5FF83870-F37F-4CFB-B90D-78CFA0FB4960}"
 EndProject

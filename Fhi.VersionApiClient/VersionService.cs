@@ -1,10 +1,8 @@
 ﻿using System.Reflection;
-
 using Microsoft.Extensions.Logging;
-
 using Refit;
 
-namespace Fhi.Grunndata.VersionApiClient;
+namespace Fhi.Common.VersionApiClient;
 
 /// <summary>
 /// Refit API definition for the azure version API
@@ -42,21 +40,19 @@ public interface IVersionService
     /// <summary>
     /// Uploads version information to the azure version API
     /// </summary>
-    /// <param name="env"></param>
     /// <param name="system"></param>
     /// <param name="comp"></param>
     /// <param name="status"></param>
     /// <returns></returns>
-    Task UploadVersionInformation(string env, string system, string comp, string status);
-    
+    Task UploadVersionInformation(string system, string comp, string status);
+
     /// <summary>
     /// Get a Shields.io badge for the version of a component
     /// </summary>
-    /// <param name="env"></param>
     /// <param name="system"></param>
     /// <param name="comp"></param>
     /// <returns></returns>
-    Task<ApiResponse<ShieldsIo>> GetInformation(string env, string system, string comp);
+    Task<ApiResponse<ShieldsIo>> GetInformation(string system, string comp);
 }
 
 /// <summary>
@@ -76,11 +72,12 @@ public class VersionService(IVersionApi versionApi, ILogger<VersionService> logg
     /// <param name="system"></param>
     /// <param name="comp"></param>
     /// <param name="status"></param>
-    public async Task UploadVersionInformation(string env, string system, string comp, string status)
+    public async Task UploadVersionInformation(string system, string comp, string status)
     {
         try
         {
-            await versionApi.SetInformation(env, system, comp, version, status);
+            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            await versionApi.SetInformation(environment??"", system, comp, version, status);
         }
         catch (ApiException e)
         {
@@ -92,15 +89,15 @@ public class VersionService(IVersionApi versionApi, ILogger<VersionService> logg
     /// <summary>
     /// Service method for getting version information in a shields.io structure
     /// </summary>
-    /// <param name="env"></param>
     /// <param name="system"></param>
     /// <param name="comp"></param>
     /// <returns></returns>
-    public async Task<ApiResponse<ShieldsIo>> GetInformation(string env, string system, string comp)
+    public async Task<ApiResponse<ShieldsIo>> GetInformation(string system, string comp)
     {
         try
         {
-            return await versionApi.GetInformation(env, system, comp);
+            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            return await versionApi.GetInformation(environment??"", system, comp);
         }
         catch (ApiException e)
         {

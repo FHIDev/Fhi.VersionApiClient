@@ -20,7 +20,7 @@ public interface IVersionApi
     /// <param name="status"></param>
     /// <returns></returns>
     [Get("/api/SetInformation")]
-    public Task SetInformation([Query] string environment, [Query] string system, [Query] string component, [Query] string version, [Query] string status);
+    public Task<string> SetInformation([Query] string environment, [Query] string system, [Query] string component, [Query] string version, [Query] string status);
 
     /// <summary>
     /// Get a Shields.io badge for the version of a component
@@ -45,7 +45,7 @@ public interface IVersionService
     /// <param name="comp"></param>
     /// <param name="status"></param>
     /// <returns></returns>
-    Task UploadVersionInformation(string system, string comp, string status);
+    Task<string> UploadVersionInformation(string system, string comp, string status);
 
     /// <summary>
     /// Get a Shields.io badge for the version of a component
@@ -89,16 +89,17 @@ public class VersionService : IVersionService
     /// <param name="system"></param>
     /// <param name="comp"></param>
     /// <param name="status"></param>
-    public async Task UploadVersionInformation(string system, string comp, string status)
+    public async Task<string> UploadVersionInformation(string system, string comp, string status)
     {
         try
         {
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            await versionApi.SetInformation(environment??"", system, comp, version, status);
+            return await versionApi.SetInformation(environment??"", system, comp, version, status);
         }
         catch (ApiException e)
         {
             logger.LogError(e, "Error uploading version information");
+            return e.Message;
         }
         
     }

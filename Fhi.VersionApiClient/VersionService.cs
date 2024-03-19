@@ -3,6 +3,7 @@ using System.Reflection;
 using Microsoft.Extensions.Logging;
 using Refit;
 
+
 namespace Fhi.Common.VersionApiClient;
 
 /// <summary>
@@ -79,13 +80,12 @@ public class VersionService : IVersionService
         var assembly = Assembly.GetEntryAssembly()!;
         var fileversioninfo = FileVersionInfo.GetVersionInfo(assembly.Location);
         var results = fileversioninfo.ProductVersion.Split('+');
-        version=results[0];
+        version = results[0];
     }
 
     /// <summary>
     /// Service method for uploading version information
     /// </summary>
-    /// <param name="env"></param>
     /// <param name="system"></param>
     /// <param name="comp"></param>
     /// <param name="status"></param>
@@ -94,16 +94,16 @@ public class VersionService : IVersionService
         try
         {
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            return await versionApi.SetInformation(environment??"", system, comp, version, status);
+            return await versionApi.SetInformation(environment ?? "", system, comp, version, status);
         }
         catch (ApiException e)
         {
             logger.LogError(e, "Error uploading version information");
             return e.Message;
         }
-        
+
     }
-    
+
     /// <summary>
     /// Service method for getting version information in a shields.io structure
     /// </summary>
@@ -115,12 +115,12 @@ public class VersionService : IVersionService
         try
         {
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            return await versionApi.GetInformation(environment??"", system, comp);
+            return await versionApi.GetInformation(environment ?? "", system, comp);
         }
         catch (ApiException e)
         {
             logger.LogError(e, "Error getting version information");
             throw;
         }
-    }   
+    }
 }

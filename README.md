@@ -5,7 +5,7 @@ This applies to components that can not be reached directly from the Fhi Azure D
 
 Use of this client allows the component to instead upload its version information to the Fhi Azure VersionApi service.
 
-## Setup
+## Setup (using No authentication)
 
 In program.cs, add the following:
 

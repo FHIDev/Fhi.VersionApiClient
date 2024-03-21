@@ -33,14 +33,15 @@ public static class VersionClientExtensions
         services.AddHostedService<HostedVersionService>();
         return services;
     }
-    
+
     /// <summary>
-    /// Adds a Refit version API with no authentication
+    /// Adds http client services for the version API with no authentication to the specified <see cref="IServiceCollection"/>.
+    /// PS. Using a Refit version API
     /// </summary>
     /// <param name="services"></param>
     /// <param name="baseUrl"></param>
     /// <returns></returns>
-    public static IServiceCollection AddRefitVersionApi(this IServiceCollection services, string baseUrl)
+    public static IServiceCollection AddHttpClientServiceForVersionApi(this IServiceCollection services, string baseUrl)
     {
         services.AddRefitClient<IVersionApi>()
             .ConfigureHttpClient(c => c.BaseAddress = new Uri(baseUrl));

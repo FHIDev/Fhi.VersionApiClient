@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using Refit;
 
 namespace Fhi.Common.VersionApiClient;
 
@@ -30,6 +31,19 @@ public static class VersionClientExtensions
     public static IServiceCollection AddPushVersionClient(this IServiceCollection services)
     {
         services.AddHostedService<HostedVersionService>();
+        return services;
+    }
+    
+    /// <summary>
+    /// Adds a Refit version API with no authentication
+    /// </summary>
+    /// <param name="services"></param>
+    /// <param name="baseUrl"></param>
+    /// <returns></returns>
+    public static IServiceCollection AddRefitVersionApi(this IServiceCollection services, string baseUrl)
+    {
+        services.AddRefitClient<IVersionApi>()
+            .ConfigureHttpClient(c => c.BaseAddress = new Uri(baseUrl));
         return services;
     }
 }

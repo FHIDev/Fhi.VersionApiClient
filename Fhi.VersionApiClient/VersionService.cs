@@ -1,8 +1,8 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
+using Fhi.Common.VersionApiClient.Exceptions;
 using Microsoft.Extensions.Logging;
 using Refit;
-
 
 namespace Fhi.Common.VersionApiClient;
 
@@ -79,6 +79,12 @@ public class VersionService : IVersionService
         this.logger = logger;
         var assembly = Assembly.GetEntryAssembly()!;
         var fileversioninfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+
+        if (fileversioninfo.ProductVersion is null)
+        {
+            throw new ProductVersionMissingException();
+        }
+
         var results = fileversioninfo.ProductVersion.Split('+');
         version = results[0];
     }
@@ -101,7 +107,6 @@ public class VersionService : IVersionService
             logger.LogError(e, "Error uploading version information");
             return e.Message;
         }
-
     }
 
     /// <summary>

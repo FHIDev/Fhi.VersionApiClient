@@ -1,4 +1,4 @@
-# Fhi.Common.VersionApiClient
+# Fhi.VersionApiClient
 
 Small client to be used in clients that needs to upload version information to the Fhi.VersionApi.
 This applies to components that can not be reached directly from the Fhi Azure DevOps service.

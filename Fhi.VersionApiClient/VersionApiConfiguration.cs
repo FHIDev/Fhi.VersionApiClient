@@ -1,4 +1,4 @@
-﻿namespace Fhi.Common.VersionApiClient;
+﻿namespace Fhi.VersionApiClient;
 
 /// <summary>
 /// Configuration for the version client service.

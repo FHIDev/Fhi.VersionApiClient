@@ -3,13 +3,13 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <Version>2.0.1</Version>
+    <Version>2.0.2</Version>
     <LangVersion>latest</LangVersion>
     <authors>Folkehelseinstituttet (FHI)</authors>
     <Copyright>(c) 2024 Folkehelseinstituttet (FHI)</Copyright>
     <PackageCopyright>Copyright ©2024 Folkehelseinstituttet</PackageCopyright>
-    <RepositoryUrl>https://github.com/folkehelseinstituttet/Fhi.VersionApiClient</RepositoryUrl>
-    <projectUrl>https://github.com/folkehelseinstituttet/Fhi.VersionApiClient</projectUrl>
+    <RepositoryUrl>https://github.com/FHIDev/Fhi.VersionApiClient</RepositoryUrl>
+    <projectUrl>https://github.com/FHIDev/Fhi.VersionApiClient</projectUrl>
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
     <PackageDescription>Small client to be used in clients that needs to upload version information to the Fhi.VersionApi.</PackageDescription>
     <PackageReadmeFile>README.md</PackageReadmeFile>

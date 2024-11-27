@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 
-namespace Fhi.Common.VersionApiClient;
+namespace Fhi.VersionApiClient;
 
 /// <summary>
 /// Hosted service that calls the version API at startup

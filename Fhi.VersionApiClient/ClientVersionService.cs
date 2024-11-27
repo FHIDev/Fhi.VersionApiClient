@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 
-namespace Fhi.Common.VersionApiClient;
+namespace Fhi.VersionApiClient;
 
 /// <summary>
 /// Interface for DI for the ApiVersionService

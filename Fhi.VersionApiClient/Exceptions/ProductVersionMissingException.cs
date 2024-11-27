@@ -1,5 +1,6 @@
-﻿namespace Fhi.Common.VersionApiClient.Exceptions
+﻿namespace Fhi.VersionApiClient.Exceptions
 {
+    [Serializable]
     public class ProductVersionMissingException : Exception
     {
         public ProductVersionMissingException() { }

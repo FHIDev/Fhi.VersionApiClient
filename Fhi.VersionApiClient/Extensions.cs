@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Refit;
 
 
-namespace Fhi.Common.VersionApiClient;
+namespace Fhi.VersionApiClient;
 
 /// <summary>
 /// Contains extension methods for configuring version-related services.
@@ -33,7 +33,7 @@ public static class Extensions
     /// <param name="services">The <see cref="IServiceCollection"/> to add the services to.</param>
     /// <param name="vc"><see cref="VersionApiConfiguration"/> </param>
     /// <returns>The <see cref="IServiceCollection"/> after the services have been added.</returns>
-    public static VersionClientFactory AddVersionClient(this IServiceCollection services, VersionApiConfiguration vc) 
+    public static VersionClientFactory AddVersionClient(this IServiceCollection services, VersionApiConfiguration vc)
         => AddVersionClient(services, vc.SystemName, vc.ComponentName, vc.VersionApiUrl);
 
     /// <summary>
@@ -96,6 +96,4 @@ public class VersionClientFactory(IServiceCollection services, string baseUrl)
             .ConfigureHttpClient(c => c.BaseAddress = new Uri(baseUrl));
         return this;
     }
-
-
 }

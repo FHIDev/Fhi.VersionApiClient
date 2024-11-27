@@ -1,10 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
-using Fhi.Common.VersionApiClient.Exceptions;
+using Fhi.VersionApiClient.Exceptions;
 using Microsoft.Extensions.Logging;
 using Refit;
 
-namespace Fhi.Common.VersionApiClient;
+namespace Fhi.VersionApiClient;
 
 /// <summary>
 /// Refit API definition for the azure version API

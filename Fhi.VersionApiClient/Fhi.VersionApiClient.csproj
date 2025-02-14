@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <Version>2.0.2</Version>
-    <IsPackable>true</IsPackable>    
+    <IsPackable>true</IsPackable>
     <RepositoryUrl>https://github.com/FHIDev/Fhi.VersionApiClient</RepositoryUrl>
     <Authors>Folkehelseinstituttet (FHI)</Authors>
     <Copyright>Copyright 2022-2025 Folkehelseinstituttet (FHI)</Copyright>
     <PackageCopyright>Copyright ©2024 Folkehelseinstituttet</PackageCopyright>
-    <PackageProjectUrl>https://www.nuget.org/packages/Fhi.BaseConfigTests</PackageProjectUrl>    
+    <PackageProjectUrl>https://www.nuget.org/packages/Fhi.BaseConfigTests</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>fhi.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>

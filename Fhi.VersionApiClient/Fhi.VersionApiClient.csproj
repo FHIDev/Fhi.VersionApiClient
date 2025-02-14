@@ -1,28 +1,24 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
     <Version>2.0.2</Version>
-    <LangVersion>latest</LangVersion>
-    <authors>Folkehelseinstituttet (FHI)</authors>
-    <Copyright>(c) 2024 Folkehelseinstituttet (FHI)</Copyright>
-    <PackageCopyright>Copyright ©2024 Folkehelseinstituttet</PackageCopyright>
+    <IsPackable>true</IsPackable>
     <RepositoryUrl>https://github.com/FHIDev/Fhi.VersionApiClient</RepositoryUrl>
-    <projectUrl>https://github.com/FHIDev/Fhi.VersionApiClient</projectUrl>
-    <GenerateDocumentationFile>True</GenerateDocumentationFile>
-    <PackageDescription>Small client to be used in clients that needs to upload version information to the Fhi.VersionApi.</PackageDescription>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <Authors>Folkehelseinstituttet (FHI)</Authors>
+    <Copyright>Copyright 2022-2025 Folkehelseinstituttet (FHI)</Copyright>
+    <PackageCopyright>Copyright ©2024 Folkehelseinstituttet</PackageCopyright>
+    <PackageProjectUrl>https://www.nuget.org/packages/Fhi.VersionApiClient</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageIcon>fhi.png</PackageIcon>
-  </PropertyGroup>
-  <PropertyGroup>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageDescription>
+      Small client to be used in clients that needs to upload version information to the Fhi.VersionApi.
+    </PackageDescription>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <Tags>versioning</Tags>
   </PropertyGroup>
   <ItemGroup>
     <None Include="../README.md" Pack="true" PackagePath="/" />
-    <None Include="../images/fhi.png" Pack="true" Visible="false" PackagePath="/" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="9.0.0" />

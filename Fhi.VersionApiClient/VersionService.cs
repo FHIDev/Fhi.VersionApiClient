@@ -1,6 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
 using Fhi.VersionApiClient.Exceptions;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Refit;
 
@@ -65,6 +66,7 @@ public class VersionService : IVersionService
 {
     readonly string version;
     private readonly IVersionApi versionApi;
+    private readonly IHostEnvironment hostEnvironment;
     private readonly ILogger<VersionService> logger;
 
     /// <summary>
@@ -72,9 +74,11 @@ public class VersionService : IVersionService
     /// Add this in program.cs: services.AddScoped;
     /// </summary>
     /// <param name="versionApi"></param>
+    /// <param name="hostEnvironment"></param>
     /// <param name="logger"></param>
-    public VersionService(IVersionApi versionApi, ILogger<VersionService> logger)
+    public VersionService(IVersionApi versionApi, IHostEnvironment hostEnvironment, ILogger<VersionService> logger)
     {
+        this.hostEnvironment = hostEnvironment;
         this.versionApi = versionApi;
         this.logger = logger;
         var assembly = Assembly.GetEntryAssembly()!;
@@ -99,8 +103,8 @@ public class VersionService : IVersionService
     {
         try
         {
-            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
-            return await versionApi.SetInformation(environment ?? "", system, comp, version, status);
+            var environment = hostEnvironment.EnvironmentName;
+            return await versionApi.SetInformation(environment, system, comp, version, status);
         }
         catch (ApiException e)
         {

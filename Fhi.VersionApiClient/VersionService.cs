@@ -123,7 +123,7 @@ public class VersionService : IVersionService
     {
         try
         {
-            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+            var environment = hostEnvironment.EnvironmentName;
             return await versionApi.GetInformation(environment ?? "", system, comp);
         }
         catch (ApiException e)

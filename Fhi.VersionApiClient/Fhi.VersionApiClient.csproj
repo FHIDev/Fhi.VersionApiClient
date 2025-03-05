@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Version>2.2.0-beta1</Version>
+    <Version>2.2.0</Version>
     <IsPackable>true</IsPackable>
     <RepositoryUrl>https://github.com/FHIDev/Fhi.VersionApiClient</RepositoryUrl>
     <Authors>Folkehelseinstituttet (FHI)</Authors>

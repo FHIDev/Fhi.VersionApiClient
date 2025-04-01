@@ -32,7 +32,7 @@ public interface IVersionApi
     /// <param name="component"></param>
     /// <returns></returns>
     [Get("/api/GetInformation")]
-    public Task<ApiResponse<ShieldsIo>> GetInformation([AliasAs("enviroment")][Query] string environment, [Query] string system, [Query] string component);
+    public Task<ApiResponse<ShieldsIo>> GetInformation([Query] string environment, [Query] string system, [Query] string component);
 }
 
 /// <summary>

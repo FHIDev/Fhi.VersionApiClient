@@ -13,6 +13,12 @@ public class VersionApiIntegrationTests
         _versionApi = RestService.For<IVersionApi>("https://versionapi-felles-fhi.azurewebsites.net");
     }
 
+    
+    // TODO: Remove comment when VersionApi is fixed
+    /// <summary>
+    /// There is a typo in VersionApi, so this test fails
+    /// enviroment should be environment
+    /// </summary>
     [Test]
     public async Task GetInformation_ReturnsSuccess()
     {

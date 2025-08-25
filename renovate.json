@@ -13,7 +13,7 @@
   },
 
   // Schedule it, default 5-6 am .
-  "schedule": ["every day"]
+  "schedule": ["daily"]
 
   // Keep noise down
   "prHourlyLimit": 4,

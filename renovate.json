@@ -2,45 +2,33 @@
   "extends": ["config:base"],
   "timezone": "Europe/Oslo",
 
-  // Create and maintain a central "Dependency Dashboard" issue
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "📌 Dependency Dashboard",
   "dependencyDashboardAutoclose": false,
 
-  // Use GitHub Security Alerts as triggers & prioritize them
-  "vulnerabilityAlerts": {
-    "enabled": true
-  },
+  "vulnerabilityAlerts": { "enabled": true },
 
-  // Schedule it, default 5-6 am .
-
-  "schedule": ["daily"],
-
-  // Keep noise down
+  "schedule": ["at 6am every day"],
 
   "prHourlyLimit": 4,
   "prConcurrentLimit": 5,
   "labels": ["dependencies"],
 
-  // Group most updates into one PR per ecosystem (majors stay separate)
   "packageRules": [
     {
-      "groupName": "All NuGet non-major updates",
+      "groupName": "NuGet non-major updates",
       "matchManagers": ["nuget"],
-      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "rollback"],
-      "separateMinorPatch": false
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "rollback"]
     },
     {
-      "groupName": "All GitHub Actions non-major updates",
+      "groupName": "GitHub Actions non-major updates",
       "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "rollback"],
-      "separateMinorPatch": false
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "rollback"]
     },
     {
-      "groupName": "All Docker non-major updates",
+      "groupName": "Docker non-major updates",
       "matchManagers": ["docker"],
-      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "rollback"],
-      "separateMinorPatch": false
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "rollback"]
     }
   ]
 }

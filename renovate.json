@@ -13,9 +13,11 @@
   },
 
   // Schedule it, default 5-6 am .
-  "schedule": ["every day"]
+
+  "schedule": ["every day"],
 
   // Keep noise down
+
   "prHourlyLimit": 4,
   "prConcurrentLimit": 5,
   "labels": ["dependencies"],

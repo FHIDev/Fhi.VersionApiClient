@@ -1,0 +1,44 @@
+{
+  "extends": ["config:base"],
+  "timezone": "Europe/Oslo",
+
+  // Create and maintain a central "Dependency Dashboard" issue
+  "dependencyDashboard": true,
+  "dependencyDashboardTitle": "📌 Dependency Dashboard",
+  "dependencyDashboardAutoclose": false,
+
+  // Use GitHub Security Alerts as triggers & prioritize them
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+
+  // Schedule it, default 5-6 am .
+  "schedule": ["every day"]
+
+  // Keep noise down
+  "prHourlyLimit": 4,
+  "prConcurrentLimit": 5,
+  "labels": ["dependencies"],
+
+  // Group most updates into one PR per ecosystem (majors stay separate)
+  "packageRules": [
+    {
+      "groupName": "All NuGet non-major updates",
+      "matchManagers": ["nuget"],
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "rollback"],
+      "separateMinorPatch": false
+    },
+    {
+      "groupName": "All GitHub Actions non-major updates",
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "rollback"],
+      "separateMinorPatch": false
+    },
+    {
+      "groupName": "All Docker non-major updates",
+      "matchManagers": ["docker"],
+      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "rollback"],
+      "separateMinorPatch": false
+    }
+  ]
+}

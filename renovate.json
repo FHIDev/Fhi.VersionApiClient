@@ -14,7 +14,7 @@
 
   // Schedule it, default 5-6 am .
 
-  "schedule": ["daily"]
+  "schedule": ["daily"],
 
   // Keep noise down
 

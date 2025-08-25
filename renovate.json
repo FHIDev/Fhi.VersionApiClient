@@ -1,34 +1,61 @@
 {
-  "extends": ["config:base"],
+  "extends": [
+    "config:recommended"
+  ],
   "timezone": "Europe/Oslo",
-
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "📌 Dependency Dashboard",
   "dependencyDashboardAutoclose": false,
-
-  "vulnerabilityAlerts": { "enabled": true },
-
-   "schedule": ["* 6 * * *"],
-
+  "vulnerabilityAlerts": {
+    "enabled": true
+  },
+  "schedule": [
+    "* 6 * * *"
+  ],
   "prHourlyLimit": 4,
   "prConcurrentLimit": 5,
-  "labels": ["dependencies"],
-
+  "labels": [
+    "dependencies"
+  ],
   "packageRules": [
     {
       "groupName": "NuGet non-major updates",
-      "matchManagers": ["nuget"],
-      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "rollback"]
+      "matchManagers": [
+        "nuget"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest",
+        "pin",
+        "rollback"
+      ]
     },
     {
       "groupName": "GitHub Actions non-major updates",
-      "matchManagers": ["github-actions"],
-      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "rollback"]
+      "matchManagers": [
+        "github-actions"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest",
+        "pin",
+        "rollback"
+      ]
     },
     {
       "groupName": "Docker non-major updates",
-      "matchManagers": ["docker"],
-      "matchUpdateTypes": ["minor", "patch", "digest", "pin", "rollback"]
+      "matchManagers": [
+        "docker"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest",
+        "pin",
+        "rollback"
+      ]
     }
   ]
 }

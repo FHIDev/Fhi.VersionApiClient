@@ -54,6 +54,19 @@
         "pin",
         "rollback"
       ]
+    },
+    {
+      "groupName": "Npm non-major updates",
+      "matchManagers": [
+        "npm"
+      ],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "digest",
+        "pin",
+        "rollback"
+      ]
     }
   ]
 }

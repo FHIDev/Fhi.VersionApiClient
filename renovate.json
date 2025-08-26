@@ -9,9 +9,7 @@
   "vulnerabilityAlerts": {
     "enabled": true
   },
-  "schedule": [
-    "* 6 * * *"
-  ],
+  schedule:daily,
   "prHourlyLimit": 4,
   "prConcurrentLimit": 5,
   "labels": [

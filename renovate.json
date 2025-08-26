@@ -1,7 +1,8 @@
 {
   "extends": [
-    "config:recommended"
+    "config:best-practices"
   ],
+  "prTitle": "TODO: {{depName}} to {{newVersion}}"
   "timezone": "Europe/Oslo",
   "dependencyDashboard": true,
   "dependencyDashboardTitle": "📌 Dependency Dashboard",

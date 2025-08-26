@@ -1,3 +1,3 @@
 {
-  "extends": ["github>fhidev/.github"]
+ "extends": ["github>fhidev/.github:renovate.json"]
 }
